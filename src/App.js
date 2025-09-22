@@ -151,12 +151,39 @@ function App() {
 
       {/* Hero Section */}
       <section className="pt-20 sm:pt-24 pb-16 sm:pb-20 px-3 sm:px-4 lg:px-8 relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-orange-50">
-        {/* Enhanced Floating Elements Background */}
+        {/* Enhanced Floating Elements Background + SS tiles */}
         <div className="absolute inset-0 pointer-events-none">
+          {/* SS tiles (left) */}
+          <div className="hidden sm:block absolute left-6 sm:left-12 top-24 sm:top-28 select-none">
+            <div className="relative">
+              {/* Orange S */}
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl rotate-[-16deg] bg-gradient-to-br from-orange-500 via-orange-400 to-red-500 shadow-2xl flex items-center justify-center animate-float" style={{animationDuration:'7s'}}>
+                <span className="text-white font-black text-4xl sm:text-5xl">S</span>
+              </div>
+              {/* Dark S */}
+              <div className="absolute -right-10 sm:-right-12 top-10 sm:top-12 w-28 h-28 sm:w-36 sm:h-36 rounded-2xl rotate-12 bg-gradient-to-br from-neutral-900 via-zinc-800 to-zinc-700 shadow-2xl flex items-center justify-center animate-float" style={{animationDuration:'7s', animationDelay:'0.8s'}}>
+                <span className="text-white font-black text-4xl sm:text-5xl">S</span>
+              </div>
+            </div>
+          </div>
           {/* Primary floating elements */}
           <div className="absolute top-20 sm:top-28 left-4 sm:left-12 w-16 sm:w-24 h-16 sm:h-24 bg-gradient-to-br from-orange-300 to-red-400 rounded-full blur-xl animate-bounce opacity-40"></div>
           <div className="absolute top-32 sm:top-40 right-8 sm:right-20 w-12 sm:w-20 h-12 sm:h-20 bg-gradient-to-br from-red-300 to-orange-400 rounded-full blur-lg animate-pulse opacity-35"></div>
           <div className="absolute bottom-20 sm:bottom-28 left-12 sm:left-24 w-10 sm:w-16 h-10 sm:h-16 bg-gradient-to-br from-yellow-300 to-orange-300 rounded-full blur-md animate-ping opacity-30"></div>
+
+          {/* SS tiles (right) */}
+          <div className="hidden sm:block absolute right-6 sm:right-12 top-24 sm:top-28 select-none">
+            <div className="relative">
+              {/* Dark S */}
+              <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-2xl rotate-[-12deg] bg-gradient-to-br from-neutral-900 via-zinc-800 to-zinc-700 shadow-2xl flex items-center justify-center animate-float" style={{animationDuration:'7s', animationDelay:'0.6s'}}>
+                <span className="text-white font-black text-4xl sm:text-5xl">S</span>
+              </div>
+              {/* Orange S */}
+              <div className="absolute -left-10 sm:-left-12 top-10 sm:top-12 w-28 h-28 sm:w-36 sm:h-36 rounded-2xl rotate-12 bg-gradient-to-br from-orange-500 via-orange-400 to-red-500 shadow-2xl flex items-center justify-center animate-float" style={{animationDuration:'7s', animationDelay:'1.3s'}}>
+                <span className="text-white font-black text-4xl sm:text-5xl">S</span>
+              </div>
+            </div>
+          </div>
           
           {/* Secondary floating elements */}
           <div className="absolute top-40 sm:top-52 right-20 sm:right-40 w-8 sm:w-12 h-8 sm:h-12 bg-orange-400 rounded-full animate-bounce opacity-60" style={{animationDelay: '1s'}}></div>
@@ -285,13 +312,20 @@ function App() {
               rel="noopener noreferrer"
               className="group relative mx-auto xs:mx-0"
             >
-              <div className="w-16 sm:w-18 lg:w-20 h-16 sm:h-18 lg:h-20 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 p-0.5 hover:scale-105 sm:hover:scale-110 transition-transform duration-300">
-                <div className="w-full h-full bg-white rounded-2xl sm:rounded-3xl flex items-center justify-center group-hover:bg-gray-50 transition-colors">
-                  <div className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500 flex items-center justify-center">
-                    <div className="w-5 sm:w-6 lg:w-8 h-5 sm:h-6 lg:h-8 border-2 border-white rounded-md sm:rounded-lg relative">
-                      <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-white rounded-full absolute -top-0.5 -right-0.5"></div>
-                    </div>
-                  </div>
+              <div className="w-16 sm:w-18 lg:w-20 h-16 sm:h-18 lg:h-20 rounded-[22%] p-0.5 bg-gradient-to-tr from-purple-500 via-pink-500 to-orange-400 hover:scale-105 sm:hover:scale-110 transition-transform duration-300 shadow-md">
+                <div className="w-full h-full rounded-[20%] bg-white flex items-center justify-center">
+                  <svg viewBox="0 0 512 512" className="w-8 sm:w-10 lg:w-12 h-8 sm:h-10 lg:h-12">
+                    <defs>
+                      <linearGradient id="igGrad" x1="0" y1="0" x2="1" y2="1">
+                        <stop offset="0%" stopColor="#a855f7" />
+                        <stop offset="50%" stopColor="#ec4899" />
+                        <stop offset="100%" stopColor="#fb923c" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="64" y="64" width="384" height="384" rx="110" ry="110" fill="none" stroke="url(#igGrad)" strokeWidth="38" />
+                    <circle cx="256" cy="256" r="92" fill="none" stroke="url(#igGrad)" strokeWidth="38" />
+                    <circle cx="356" cy="156" r="22" fill="url(#igGrad)" />
+                  </svg>
                 </div>
               </div>
               <span className="block text-xs sm:text-sm font-medium text-gray-700 mt-1 sm:mt-2">Instagram</span>
@@ -341,10 +375,10 @@ function App() {
         
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="flex items-center justify-center mb-8">
-            <STLogo size="xlarge" showBoth={true} className="mr-4" />
+            <STLogo size="xlarge" useImage={true} className="mr-4" />
             <div className="text-right">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent">
-                سترونغ ستور
+                Strong Store
               </h3>
               <p className="text-gray-300 text-base font-medium">اكسسوارات عصرية ومتميزة ✨</p>
             </div>
