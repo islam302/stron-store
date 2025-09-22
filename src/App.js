@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
-// Professional ST Logo Component with Image Support
-function STLogo({ size = 'medium', className = '', useImage = false, showBoth = false }) {
+// Professional SS Logo Component with Image Support
+function SSLogo({ size = 'medium', className = '', useImage = false, showBoth = false }) {
   const sizeClasses = {
     small: 'w-8 h-8 text-sm',
     medium: 'w-10 h-10 text-lg',
@@ -31,14 +31,14 @@ function STLogo({ size = 'medium', className = '', useImage = false, showBoth = 
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         </div>
         
-        {/* ST Text Logo */}
+        {/* SS Text Logo */}
         <div className={`${sizeClasses[size]} relative group cursor-pointer`}>
           <div className="w-full h-full rounded-2xl bg-gradient-to-br from-orange-500 via-red-500 to-red-600 flex items-center justify-center relative overflow-hidden shadow-lg group-hover:shadow-xl transition-all duration-300">
             <div className="absolute inset-0 bg-gradient-to-br from-orange-400 via-red-400 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             <div className="relative z-10 flex items-center justify-center">
               <span className="font-black text-white tracking-tight transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
                 <span className="relative">S</span>
-                <span className="relative ml-0.5">T</span>
+                <span className="relative ml-0.5">S</span>
               </span>
             </div>
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 transform translate-x-full group-hover:-translate-x-full transition-transform duration-700 ease-in-out"></div>
@@ -64,7 +64,7 @@ function STLogo({ size = 'medium', className = '', useImage = false, showBoth = 
     );
   }
 
-  // Default ST text logo
+  // Default SS text logo
   return (
     <div className={`${sizeClasses[size]} ${className} relative group cursor-pointer`}>
       {/* Main logo container with gradient background */}
@@ -112,9 +112,9 @@ function App() {
           <div className="flex items-center justify-between h-16 sm:h-18">
             <div className="flex items-center space-x-3 sm:space-x-4 space-x-reverse">
               {/* Mobile: Show both logos in smaller size */}
-              <STLogo size="small" showBoth={true} className="sm:hidden" />
+              <SSLogo size="small" showBoth={true} className="sm:hidden" />
               {/* Desktop: Show both logos in larger size */}
-              <STLogo size="medium" showBoth={true} className="hidden sm:block" />
+              <SSLogo size="medium" showBoth={true} className="hidden sm:block" />
               <div className="flex flex-col">
                 <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-orange-600 bg-clip-text text-transparent">
                   Strong Store
@@ -199,7 +199,7 @@ function App() {
           <div className="text-center">
             {/* Hero Logo Display */}
             <div className="mb-6 sm:mb-8">
-              <STLogo size="xlarge" useImage={true} className="mx-auto animate-float" />
+              <SSLogo size="xlarge" useImage={true} className="mx-auto animate-float" />
             </div>
             
             {/* Enhanced Badge */}
@@ -227,7 +227,10 @@ function App() {
             </p>
             {/* Enhanced Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center animate-fade-in-up opacity-0 px-4 sm:px-0" style={{animationDelay: '0.6s', animationFillMode: 'forwards'}}>
-              <button className="group relative bg-gradient-to-r from-orange-500 via-red-500 to-red-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold hover:shadow-2xl hover:shadow-orange-500/40 hover:scale-105 transition-all duration-300 overflow-hidden text-base sm:text-lg border border-orange-400/20">
+              <button 
+                onClick={() => document.getElementById('products').scrollIntoView({ behavior: 'smooth' })}
+                className="group relative bg-gradient-to-r from-orange-500 via-red-500 to-red-600 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold hover:shadow-2xl hover:shadow-orange-500/40 hover:scale-105 transition-all duration-300 overflow-hidden text-base sm:text-lg border border-orange-400/20"
+              >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   <span>تصفح المنتجات</span>
                   <span className="text-xl group-hover:rotate-12 transition-transform duration-300">🛍️</span>
@@ -236,7 +239,10 @@ function App() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform translate-x-full group-hover:-translate-x-full transition-transform duration-700"></div>
               </button>
               
-              <button className="group relative border-2 border-gray-300 bg-white text-gray-700 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold hover:bg-gradient-to-r hover:from-orange-50 hover:via-white hover:to-red-50 hover:border-orange-300 hover:text-orange-700 hover:scale-105 transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl">
+              <button 
+                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
+                className="group relative border-2 border-gray-300 bg-white text-gray-700 px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold hover:bg-gradient-to-r hover:from-orange-50 hover:via-white hover:to-red-50 hover:border-orange-300 hover:text-orange-700 hover:scale-105 transition-all duration-300 text-base sm:text-lg shadow-lg hover:shadow-xl"
+              >
                 <span className="flex items-center justify-center gap-2">
                   <span>تواصل معنا</span>
                   <span className="text-xl group-hover:scale-110 transition-transform duration-300">💬</span>
@@ -290,7 +296,7 @@ function App() {
                 عن سترونغ ستور
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                نمزج التصميم الجريء مع الجودة الموثوقة. كل منتج يعكس طاقة شعار S/T وتدرّج ألوان علامتنا الدافئ.
+                نمزج التصميم الجريء مع الجودة الموثوقة. كل منتج يعكس طاقة شعار Strong Store وتدرّج ألوان علامتنا الدافئ.
               </p>
             </div>
           </div>
@@ -375,7 +381,7 @@ function App() {
         
         <div className="max-w-7xl mx-auto text-center relative z-10">
           <div className="flex items-center justify-center mb-8">
-            <STLogo size="xlarge" useImage={true} className="mr-4" />
+            <SSLogo size="xlarge" useImage={true} className="mr-4" />
             <div className="text-right">
               <h3 className="text-2xl font-bold bg-gradient-to-r from-white via-orange-200 to-white bg-clip-text text-transparent">
                 Strong Store
