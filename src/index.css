@@ -1,13 +1,182 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  html, body, #root {
+    @apply h-full;
+  }
+  
+  body {
+    @apply m-0 font-tajawal text-brand-dark bg-white antialiased;
+  }
+  
+  a {
+    @apply text-inherit no-underline;
+  }
+  
+  img {
+    @apply max-w-full block;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .container {
+    @apply w-full max-w-6xl mx-auto px-5;
+  }
+  
+  .btn-primary {
+    @apply bg-brand-gradient text-white border-0 px-6 py-3 rounded-full cursor-pointer font-semibold;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:scale-105 hover:shadow-lg hover:-translate-y-1;
+  }
+  
+  .tab-btn {
+    @apply px-6 py-3 rounded-full font-semibold text-sm bg-white/90 backdrop-blur border border-brand-orange/20;
+    @apply transition-all duration-300 hover:bg-brand-gradient hover:text-white hover:scale-105 hover:-translate-y-1;
+    @apply shadow-lg hover:shadow-xl hover:shadow-brand-orange/25;
+  }
+  
+  .social-btn-instagram {
+    @apply flex items-center gap-3 px-6 py-4 rounded-full font-semibold text-white;
+    @apply bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500;
+    @apply transition-all duration-300 hover:scale-105 hover:-translate-y-1;
+    @apply shadow-lg hover:shadow-xl hover:shadow-pink-500/30;
+  }
+  
+  .social-btn-whatsapp {
+    @apply flex items-center gap-3 px-6 py-4 rounded-full font-semibold text-white;
+    @apply bg-gradient-to-r from-green-600 to-green-500;
+    @apply transition-all duration-300 hover:scale-105 hover:-translate-y-1;
+    @apply shadow-lg hover:shadow-xl hover:shadow-green-500/30;
+  }
+  
+  .social-btn-telegram {
+    @apply flex items-center gap-3 px-6 py-4 rounded-full font-semibold text-white;
+    @apply bg-gradient-to-r from-blue-600 to-blue-500;
+    @apply transition-all duration-300 hover:scale-105 hover:-translate-y-1;
+    @apply shadow-lg hover:shadow-xl hover:shadow-blue-500/30;
+  }
+}
+
+@layer utilities {
+  @keyframes floatUp {
+    0% { 
+      transform: translateY(0) scale(1); 
+      opacity: 1; 
+    }
+    100% { 
+      transform: translateY(-100px) scale(1.5); 
+      opacity: 0; 
+    }
+  }
+  
+  @keyframes fade-in-up {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes gradient-x {
+    0%, 100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+  
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  @keyframes glow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(251, 146, 60, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(251, 146, 60, 0.6), 0 0 60px rgba(239, 68, 68, 0.4);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(-3deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(3deg);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+  
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
+  }
+  
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  /* Professional ST Logo Styles */
+  .st-logo-shine {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    transform: skewX(-20deg);
+  }
+  
+  /* Enhanced gradients */
+  .bg-professional-gradient {
+    background: linear-gradient(135deg, 
+      #f97316 0%, 
+      #ea580c 25%, 
+      #dc2626 50%, 
+      #b91c1c 75%, 
+      #991b1b 100%
+    );
+  }
+  
+  .text-professional-gradient {
+    background: linear-gradient(135deg, 
+      #1f2937 0%, 
+      #374151 25%, 
+      #f97316 50%, 
+      #ea580c 75%, 
+      #dc2626 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
