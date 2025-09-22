@@ -262,16 +262,16 @@ function App() {
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-10 gap-3 sm:gap-4">
-            <CategoryCard icon="⌚" title="ساعات ذكية" count="6" />
-            <CategoryCard icon="📱" title="أغطية حماية" count="5" />
-            <CategoryCard icon="🎧" title="سماعات رأس" count="0" />
-            <CategoryCard icon="🎵" title="سماعات أذن" count="6" />
-            <CategoryCard icon="🔋" title="باور بانك" count="0" />
-            <CategoryCard icon="🔌" title="شواحن" count="0" />
-            <CategoryCard icon="📷" title="حامل موبايل او كاميرا" count="0" />
-            <CategoryCard icon="🔊" title="صب" count="0" />
-            <CategoryCard icon="💾" title="فلاشات و ميموري" count="0" />
-            <CategoryCard icon="📺" title="اسكرينات" count="0" />
+            <CategoryCard icon="⌚" title="ساعات ذكية" />
+            <CategoryCard icon="📱" title="أغطية حماية" />
+            <CategoryCard icon="🎧" title="سماعات رأس" />
+            <CategoryCard icon="🎵" title="سماعات أذن" />
+            <CategoryCard icon="🔋" title="باور بانك" />
+            <CategoryCard icon="🔌" title="شواحن" />
+            <CategoryCard icon="📷" title="حامل موبايل او كاميرا" />
+            <CategoryCard icon="🔊" title="صب" />
+            <CategoryCard icon="💾" title="فلاشات و ميموري" />
+            <CategoryCard icon="📱" title="اسكرينات" />
           </div>
         </div>
       </section>
@@ -405,7 +405,7 @@ function App() {
 }
 
 // Enhanced Category Card Component
-function CategoryCard({ icon, title, count }) {
+function CategoryCard({ icon, title }) {
   return (
     <div className="group bg-white rounded-3xl p-6 sm:p-8 text-center hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-500 hover:scale-110 hover:-rotate-2 border border-gray-100 cursor-pointer relative overflow-hidden animate-float">
       {/* Background gradient overlay */}
@@ -426,11 +426,6 @@ function CategoryCard({ icon, title, count }) {
           {title}
         </h3>
         
-        {/* Count with enhanced styling */}
-        <p className="text-sm sm:text-base text-gray-500 group-hover:text-orange-500 transition-colors font-medium">
-          {count} منتج
-          <span className="inline-block ml-1 group-hover:animate-bounce">✨</span>
-        </p>
         
         {/* Decorative elements */}
         <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-br from-orange-400 to-red-500 rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-300"></div>
@@ -456,7 +451,7 @@ function Gallery() {
     { id: 'carry', name: 'حامل موبايل او كاميرا', icon: '📷', folder: 'carry' },
     { id: 'sb', name: 'صب', icon: '🔊', folder: 'sb' },
     { id: 'memory', name: 'فلاشات و ميموري', icon: '💾', folder: 'memory' },
-    { id: 'screen', name: 'اسكرينات', icon: '📺', folder: 'screen' }
+    { id: 'screen', name: 'اسكرينات', icon: '📱', folder: 'screen' }
   ];
 
   useEffect(() => {
