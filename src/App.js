@@ -78,7 +78,7 @@ function STLogo({ size = 'medium', className = '', useImage = false, showBoth = 
           <div className="absolute bottom-1 right-1 w-1 h-1 bg-white rounded-full"></div>
         </div>
         
-        {/* ST Text with professional styling */}
+        {/* SS Text with professional styling */}
         <div className="relative z-10 flex items-center justify-center">
           <span className="font-black text-white tracking-tight transform group-hover:scale-110 transition-transform duration-300 drop-shadow-sm">
             <span className="relative">
@@ -86,7 +86,7 @@ function STLogo({ size = 'medium', className = '', useImage = false, showBoth = 
               <span className="absolute -top-0.5 -right-0.5 w-1 h-1 bg-orange-200 rounded-full opacity-60"></span>
             </span>
             <span className="relative ml-0.5">
-              T
+              S
               <span className="absolute -bottom-0.5 -left-0.5 w-1 h-1 bg-red-200 rounded-full opacity-60"></span>
             </span>
           </span>
@@ -117,7 +117,7 @@ function App() {
               <STLogo size="medium" showBoth={true} className="hidden sm:block" />
               <div className="flex flex-col">
                 <h1 className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-orange-600 bg-clip-text text-transparent">
-                  سترونغ ستور
+                  Strong Store
                 </h1>
                 <p className="text-xs text-gray-500 hidden sm:block font-medium">اكسسوارات عصرية ومتميزة ✨</p>
               </div>
