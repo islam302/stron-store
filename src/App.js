@@ -458,18 +458,38 @@ function Gallery() {
     const loadAllImages = async () => {
       const imageMap = {};
       
+      // Get the current host for API calls (works on mobile and desktop)
+      const getApiUrl = () => {
+        if (typeof window !== 'undefined') {
+          const protocol = window.location.protocol;
+          const hostname = window.location.hostname;
+          // Use port 3001 for development, but fallback to current host for production
+          const port = hostname === 'localhost' ? ':3001' : window.location.port ? `:${window.location.port}` : '';
+          return `${protocol}//${hostname}${port}`;
+        }
+        return 'http://localhost:3001';
+      };
+
+      const baseUrl = getApiUrl();
+      
       for (const category of categories) {
         try {
           // Try to fetch from server first
-          const response = await fetch(`http://localhost:3001/api/files/${category.folder}`);
+          const response = await fetch(`${baseUrl}/api/files/${category.folder}`, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+            },
+          });
           if (response.ok) {
             const serverImages = await response.json();
-            imageMap[category.id] = serverImages.map(path => `http://localhost:3001${path}`);
+            imageMap[category.id] = serverImages.map(path => `${baseUrl}${path}`);
           } else {
             throw new Error('Server not available');
           }
         } catch (error) {
-          // Fallback: use known images for existing folders
+          console.log(`Fallback to static images for ${category.folder}:`, error.message);
+          // Fallback: use known images for existing folders (relative paths work better on mobile)
           const knownImages = {
             'watches': [
               '/assets/watches/photo_5945196712010304057_y.jpg',
@@ -567,7 +587,16 @@ function Gallery() {
                   alt={`${categories.find(cat => cat.id === activeCategory)?.name} ${index + 1}`}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   onClick={() => window.open(image, '_blank')}
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
+                  onError={(e) => { 
+                    console.log('Image failed to load:', image);
+                    e.currentTarget.style.display = 'none'; 
+                  }}
+                  loading="lazy"
+                  style={{ 
+                    maxWidth: '100%', 
+                    height: 'auto',
+                    imageRendering: 'auto'
+                  }}
                 />
                 
                 {/* Overlay with enhanced styling */}
