@@ -469,6 +469,7 @@ function Gallery() {
             throw new Error('Server not available');
           }
         } catch (error) {
+          console.log(`Using fallback images for ${category.name} (${category.folder}):`, error.message);
           // Fallback: use known images for existing folders
           const knownImages = {
             'watches': [
@@ -486,6 +487,11 @@ function Gallery() {
               '/assets/mobile-covers/photo_5882141403784528951_y.jpg',
               '/assets/mobile-covers/photo_6005777509188223813_x.jpg'
             ],
+            'headphones': [
+              '/assets/headphones/headphone1.jpg',
+              '/assets/headphones/headphone2.jpg',
+              '/assets/headphones/headphone3.jpg'
+            ],
             'earbuds': [
               '/assets/earbuds/photo_5850465530350258451_y.jpg',
               '/assets/earbuds/photo_5931571035637925142_y.jpg',
@@ -493,6 +499,36 @@ function Gallery() {
               '/assets/earbuds/photo_5931571035637925149_y.jpg',
               '/assets/earbuds/photo_5931571035637925158_y.jpg',
               '/assets/earbuds/photo_5931571035637925159_y.jpg'
+            ],
+            'powerbanks': [
+              '/assets/power-banks/powerbank1.jpg',
+              '/assets/power-banks/powerbank2.jpg',
+              '/assets/power-banks/powerbank3.jpg'
+            ],
+            'adapters': [
+              '/assets/adapters/adapter1.jpg',
+              '/assets/adapters/adapter2.jpg',
+              '/assets/adapters/adapter3.jpg'
+            ],
+            'carry': [
+              '/assets/carry/carry1.jpg',
+              '/assets/carry/carry2.jpg',
+              '/assets/carry/carry3.jpg'
+            ],
+            'sb': [
+              '/assets/sb/sb1.jpg',
+              '/assets/sb/sb2.jpg',
+              '/assets/sb/sb3.jpg'
+            ],
+            'memory': [
+              '/assets/memory/memory1.jpg',
+              '/assets/memory/memory2.jpg',
+              '/assets/memory/memory3.jpg'
+            ],
+            'screen': [
+              '/assets/screen/screen1.jpg',
+              '/assets/screen/screen2.jpg',
+              '/assets/screen/screen3.jpg'
             ]
           };
           imageMap[category.id] = knownImages[category.id] || [];
